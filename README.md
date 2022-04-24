@@ -2,7 +2,7 @@
 Single Page HTML5/CSS/Javascript example of a "the price is right" style game using Youtube video links to old Ron Popeil vides.
 
 The code is a combination of routines garnered via stack overflow and other documentation.  Presents a best effort
-single page game. Plays with a tap on Chrome desktop. Plays correctly on Safari desktop. Plays with a tap on Safari mobile.
+single page game. Plays with a tap on Chrome desktop. Plays automaticly on Safari desktop. Plays with a tap on Safari mobile.
 
 goals: Consistant play without tap on a variety of device types.
 
