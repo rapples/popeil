@@ -1,0 +1,210 @@
+
+<html>
+<head>
+<style>
+body {
+  background-color: #e9c37b;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+  
+    padding-top: 60 px; /* size of chrome */
+    height: 50; 
+    overflow: hidden;
+}
+
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+}
+#overlay {
+    background:#000;
+    opacity:0.5;
+    /*background:rgba(255,255,255,0.8); or just this*/
+    z-index:50;
+    color:#fff;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+<link rel="manifest" href="manifest.json">
+
+
+<script>
+var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
+
+if (orientation === "landscape-primary") {
+  console.log("That looks good.");
+} else if (orientation === "landscape-secondary") {
+  console.log("Mmmh... the screen is upside down!");
+} else if (orientation === "portrait-secondary" || orientation === "portrait-primary") {
+console.log("Mmmh... you should rotate your device to landscape");
+} else if (orientation === undefined) {
+  console.log("The orientation API isn't supported in this browser :(");
+}
+
+    var arr = [];
+    while(arr.length < 40){
+    var r = (Math.floor(Math.random() * 20)*2) ;
+    if(arr.indexOf(r) === -1) arr.push(r);   
+    if(arr.indexOf(r+1) === -1) arr.push(r+1);
+    }
+	
+
+    
+console.log('Video order array values:');
+console.log(arr);
+
+window.alert("Thanks for visiting the Philadelphia Cheesesteak Museum! Shuffling videos... click ok to continue.");
+(function(scope){
+
+	function videoPlaylist(){
+    //private variable
+    
+   var list=[ 
+              "XQZtlvDiJ4s?start=0&end=24"   ,"XQZtlvDiJ4s?start=24&end=30",
+              "KAahxs1anuo?start=60&end=80","KAahxs1anuo?start=80&end=90",	
+              "XQZtlvDiJ4s?start=31&end=83"  ,"XQZtlvDiJ4s?start=82&end=90",
+              "XQZtlvDiJ4s?start=90&end=116" ,"XQZtlvDiJ4s?start=115&end=122",
+              "XQZtlvDiJ4s?start=123&end=145","XQZtlvDiJ4s?start=145&end=154",
+              "XQZtlvDiJ4s?start=155&end=207","XQZtlvDiJ4s?start=207&end=216",
+              "XQZtlvDiJ4s?start=217&end=270","XQZtlvDiJ4s?start=269&end=277",
+              "XQZtlvDiJ4s?start=278&end=325","XQZtlvDiJ4s?start=325&end=329",
+              "XQZtlvDiJ4s?start=330&end=383","XQZtlvDiJ4s?start=383&end=389",
+              "XQZtlvDiJ4s?start=390&end=413","XQZtlvDiJ4s?start=413&end=420",
+              "XQZtlvDiJ4s?start=420&end=443","XQZtlvDiJ4s?start=443&end=447", 
+              "XQZtlvDiJ4s?start=448&end=496","XQZtlvDiJ4s?start=496&end=508",
+              "XQZtlvDiJ4s?start=512&end=569","XQZtlvDiJ4s?start=569&end=597",
+              "XQZtlvDiJ4s?start=598&end=621","XQZtlvDiJ4s?start=621&end=627",
+              "KAahxs1anuo?start=90&end=105","KAahxs1anuo?start=105&end=120",	
+              "KAahxs1anuo?start=120&end=140","KAahxs1anuo?start=140&end=148",	
+              "KAahxs1anuo?start=149&end=190","KAahxs1anuo?start=190&end=198",	
+              "KAahxs1anuo?start=200&end=223","KAahxs1anuo?start=223&end=229",	
+              "KAahxs1anuo?start=230&end=283","KAahxs1anuo?start=283&end=290",	
+              "KAahxs1anuo?start=290&end=340","KAahxs1anuo?start=340&end=350",	
+              "KAahxs1anuo?start=351&end=375","KAahxs1anuo?start=375&end=382",	
+              "KAahxs1anuo?start=382&end=435","KAahxs1anuo?start=435&end=443",	
+              "KAahxs1anuo?start=444&end=493","KAahxs1anuo?start=493&end=503",	
+              "KAahxs1anuo?start=600&end=620","KAahxs1anuo?start=620&end=631",	
+              "KAahxs1anuo?start=631&end=650","KAahxs1anuo?start=650&end=660",	
+              "KAahxs1anuo?start=662&end=713","KAahxs1anuo?start=713&end=720",	
+              "KF8usi89LFU?start=0&end=20","KF8usi89LFU?start=20&end=30",	
+              "KF8usi89LFU?start=165&end=200","KF8usi89LFU?start=200&end=210",	
+              "KF8usi89LFU?start=210&end=234","KF8usi89LFU?start=234&end=240",	
+              "KF8usi89LFU?start=242&end=290","KF8usi89LFU?start=290&end=302",	
+              "KF8usi89LFU?start=302&end=345","KF8usi89LFU?start=345&end=362",	
+              "KF8usi89LFU?start=485&end=537","KF8usi89LFU?start=537&end=362",	
+              "KF8usi89LFU?start=548&end=565","KF8usi89LFU?start=565&end=570",	
+              "KF8usi89LFU?start=685&end=715","KF8usi89LFU?start=715&end=723",	
+              "KF8usi89LFU?start=724&end=768","KF8usi89LFU?start=768&end=780",	
+              "KF8usi89LFU?start=794&end=822","KF8usi89LFU?start=822&end=843"];	
+
+ 
+              
+    //the index of the current video
+    var pointer =1;
+    this.getList = function(){
+     return list; 
+    }
+    this.getPointer = function(){
+      return pointer;
+    };
+    this.setPointer = function(value){
+      var num = ~~(value / 2);
+      document.getElementById("info").innerHTML = "The Popeil Game: Product Video "+num+"<\/br>";
+      pointer = value;
+	if ((num*2) != value) 
+           {var buttonText = "Next Product"; } else {var buttonText = "Show Price";}
+
+      document.getElementById("nextvid").innerHTML = buttonText;
+    }
+	}
+  function getCurrentVideoPrivate(context){
+    var pointer = context.getPointer();
+    var list = context.getList();
+
+    
+    var currentVideo = list[arr[pointer-1]];
+    console.log("pointer: ",pointer-1);
+    console.log("array: ",arr[pointer-1]);
+    console.log("list: ",list[arr[pointer-1]]);
+   
+      if(pointer<list.length-1){
+       pointer +=1; 
+      }else{
+        pointer = 0;
+      }  
+      context.setPointer(pointer);
+      return currentVideo;
+  }
+  //public method getter for private variable
+  videoPlaylist.prototype.getVideo = function(){
+    return getCurrentVideoPrivate(this);
+  };
+
+	scope.videoPlaylist = videoPlaylist;
+}(window));
+
+var playList = new videoPlaylist();
+
+//because you can have more than one element
+//belonging to  class, we must select the
+//first one for our use
+
+//get the video-container element
+var elems = document.getElementsByClassName("video-container");
+
+//this advances the playlist
+function nextVideo(){
+elems[0].innerHTML = '<iframe src="https://www.youtube.com/embed/'+playList.getVideo()+'&rel=0&control=0&modestbranding=1&wmode=opaque&html5=1&autoplay=1&loop=1&showinfo=0" frameborder="0"></iframe><div id="overlay">';
+  
+}
+
+//This function is activated by the button
+nextVideo();
+
+</script>
+
+</head>
+<div id="info">
+<h1>The Popeal is Right Game (The Price is Right)</h1>
+</br>
+</br>
+<b>Rules:</b> Each player bids in order and must bid as close as they can to the actual retail price without going over.</br> Contestants bid in dollars and cents as the retail prices are not rounded off, and may not bid the same amount as any player bid previously for that prize.</br>
+</br></br><b>Instructions:</b> Click on the video to play it. Click the Next Video button to advance through the videos. </br>After each product is shown try to guess the price.
+</br>  </br>
+Alternate who guesses first and keep score! </br> 
+ The closest guess gets 1 point. Game is 12 products long.
+</div>
+<div class="holder">
+</br>
+  <button id=nextvid class="button" onclick="nextVideo()">Start Game!</button>
+<hr>
+  <div class="video-container">
+    
+  </div>
+  </br>
+  </div>
+
+</div>
+</html>
+
