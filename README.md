@@ -1,5 +1,5 @@
 # popeil
-Single Page HTML5/CSS/Javascript example of a "the price is right" style game using Youtube video links to old Ron Popeil vides.
+Single Page HTML5/CSS/Javascript example of a "the price is right" style game using Youtube video links to old Ron Popeil videos.
 
 The code is a combination of routines garnered via stack overflow and other documentation.  Presents a best effort
 single page game. Plays with a tap on Chrome desktop. Plays automaticly on Safari desktop. Plays with a tap on Safari mobile.
